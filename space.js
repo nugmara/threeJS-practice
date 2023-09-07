@@ -1,4 +1,6 @@
 let scene, camera, renderer;
+let geoArr = []
+let starGeo;
 
 function init() {
     scene = new THREE.Scene();
@@ -14,8 +16,39 @@ function init() {
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement)
-}
 
-for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 500; i++) {
+        let star = new THREE.Vector3(
+            Math.random() * 600 - 300,
+            Math.random() * 600 - 300,
+            Math.random() * 600 - 300
+        )
+        star.velocity = 0;
+        star.acceleration = 0.001;
+        geoArr.push(star)
+    }
+    starGeo = new THREE.BufferGeometry().setFromPoints(geoArr)
     
+    let sprite = new THREE.TextureLoader().load("./images/circle.png")
+    let starMaterial = new THREE.PointsMaterial({
+        color: "gray",
+        size: 0.6,
+        map: sprite,
+    })
+    stars = new THREE.Points(starGeo, starMaterial)
+    scene.add(stars)
+    animate()
 }
+init()
+function animate() {
+    const positions = starGeo.attributes.position.array;
+    for (let i = 0; i < geoArr.length; i++) {
+        geoArr[i].velocity += geoArr[i].acceleration;
+        positions[i + 3 + 1] -= geoArr[i].velocity;
+    }
+    starGeo.attributes.position.needsUpdate = true;
+    renderer.render(scene, camera)
+    requestAnimationFrame(animate)
+}
+animate()
+
