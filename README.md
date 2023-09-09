@@ -1,5 +1,6 @@
-
 # Three.js Starfield Animation
+
+<img src="./images/space-effect.gif">
 
 This is a simple starfield animation created using the Three.js library. It generates a starry background with stars that appear to move downwards to create a parallax effect. The stars wrap around when they move out of the canvas area.
 
@@ -20,19 +21,19 @@ Make sure you have the following prerequisites installed:
 
 2. Navigate to the project directory:
 
-   \`\`\`bash
+   ```bash
    cd <project_directory>
-   \`\`\`
+   ```
 
 3. Install the required dependencies:
 
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 ## Usage
 
-After installing the dependencies, you can run the animation by opening the \`index.html\` file in a web browser.
+After installing the dependencies, you can run the animation by opening the `index.html` file in a web browser.
 
 The animation will start automatically and display a starfield that moves downwards with a parallax effect.
 
@@ -44,35 +45,35 @@ You can customize the animation by modifying the JavaScript code in the \`index.
 
 You can adjust the number of stars by changing the value in the following line of code in \`index.js\`:
 
-\`\`\`javascript
+```javascript
 for (let i = 0; i < 2000; i++) {
-\`\`\`
+```
 
 Simply change \`2000\` to your desired number.
 
 ### Star Size and Color
 
-You can modify the size and color of the stars by changing the properties of the \`starMaterial\` object in \`index.js\`:
+You can modify the size and color of the stars by changing the properties of the `starMaterial` object in \`index.js\`:
 
-\`\`\`javascript
+```javascript
 let starMaterial = new THREE.PointsMaterial({
     color: "gray",
     size: 0.5,
     map: sprite,
 })
-\`\`\`
+```
 
-Adjust the \`size\` and \`color\` properties to achieve your desired visual effect.
+Adjust the `size` and `color` properties to achieve your desired visual effect.
 
 ### Star Texture
 
-You can replace the star texture by providing a different image URL to the \`THREE.TextureLoader().load()\` function in \`index.js\`:
+You can replace the star texture by providing a different image URL to the `THREE.TextureLoader().load()` function in \`index.js\`:
 
-\`\`\`javascript
+```javascript
 let sprite = new THREE.TextureLoader().load("./images/circle.png")
-\`\`\`
+```
 
-Replace \`"./images/circle.png"\` with the URL of your desired star texture.
+Replace `"./images/circle.png"` with the URL of your desired star texture.
 
 ## Credits
 
