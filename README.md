@@ -14,9 +14,9 @@ Make sure you have the following prerequisites installed:
 
 1. Clone this repository to your local machine:
 
-   \`\`\`bash
+   ```bash
    git clone <repository_url>
-   \`\`\`
+   ```
 
 2. Navigate to the project directory:
 
